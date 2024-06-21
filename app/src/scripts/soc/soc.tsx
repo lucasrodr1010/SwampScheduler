@@ -139,6 +139,12 @@ export abstract class SOC_Generic {
                     ),
                 ),
             );
+        } else if (searchBy === SearchBy.SECTION_ID) {
+            return this.courses.filter((c) =>
+                c.sections.some((s) =>
+                    s.number.toString().includes(phrase),
+                ),
+            );
         }
         throw new Error("Unhandled SearchBy.");
     }
